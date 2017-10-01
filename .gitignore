@@ -13,3 +13,5 @@ hs_err_pid*
 
 /coffee/target/
 /coffeebackend/target/
+/coffee/.settings/
+/coffeebackend/.settings/
