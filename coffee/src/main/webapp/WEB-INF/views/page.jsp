@@ -40,7 +40,7 @@
 
 	<div class="wrapper">
 		<!-- Navigation -->
-		<%@include file="./shared/navigation.jsp"%>
+		<%@include file="./shared/navbar.jsp"%>
 
 
 		<!-- Page Content start -->
