@@ -73,10 +73,13 @@ public class PageController {
 		category = categoryDAO.getById(id);
 		mv.addObject("title", category.getName());
 
-		// passing the single category object
-		mv.addObject("title", category.getName());
+		// passing the list of categories
+		mv.addObject("categories", categoryDAO.loadAllCategories());
 
-		mv.addObject("userClickAllProducts", true);
+		// passing the single category object
+		mv.addObject("category", category);
+
+		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}
 }
