@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.denis.coffeebackend.dao.CoffeeOrderItemDaoInterface;
+import com.denis.coffeebackend.dao.CoffeeOrderItemDAOInterface;
 import com.denis.coffeebackend.entity.CoffeeOrderItemEntity;
 import com.denis.coffeebackend.exception.EntityException;
 
-public class CoffeeOrderItemDao implements CoffeeOrderItemDaoInterface {
+public class CoffeeOrderItemDAO implements CoffeeOrderItemDAOInterface {
 
 	@Override
 	public void save(CoffeeOrderItemEntity bean) throws EntityException {

@@ -4,7 +4,7 @@
 	<groupId>com.denis</groupId>
 	<artifactId>coffee</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${project.version}</version>
 	<name>coffee Maven Webapp</name>
 
 	<properties>
@@ -14,9 +14,19 @@
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<spring.version>5.0.0.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
+		<project.version>0.0.1-SNAPSHOT</project.version>
 	</properties>
 
 	<dependencies>
+		<!-- Link coffeebackend -->
+		<dependency>
+			<groupId>com.denis</groupId>
+			<artifactId>coffeebackend</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+
+
 		<!-- Java EE API -->
 		<dependency>
 			<groupId>javax</groupId>

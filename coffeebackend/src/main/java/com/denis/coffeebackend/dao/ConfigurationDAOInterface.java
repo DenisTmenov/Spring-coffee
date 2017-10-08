@@ -5,7 +5,7 @@ import java.util.List;
 import com.denis.coffeebackend.entity.ConfigurationEntity;
 import com.denis.coffeebackend.exception.EntityException;
 
-public interface ConfigurationDaoInterface {
+public interface ConfigurationDAOInterface {
 
 	public List<ConfigurationEntity> getConfigurationDataFromDb() throws EntityException;
 

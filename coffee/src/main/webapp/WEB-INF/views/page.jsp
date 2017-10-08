@@ -64,6 +64,11 @@
 			<c:if test="${userClickServices == true}">
 				<%@include file="services.jsp"%>
 			</c:if>
+			
+			<!-- View product page -->
+			<c:if test="${userClickViewProduct == true}">
+				<%@include file="viewProduct.jsp"%>
+			</c:if>
 		</div>
 		<!-- Page Content end -->
 

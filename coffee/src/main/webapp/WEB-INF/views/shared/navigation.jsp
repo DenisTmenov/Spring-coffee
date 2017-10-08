@@ -10,6 +10,9 @@
               <a class="nav-link" href="${contextRoot}/home">Home</a>
             </li>
             <li id="about" class="nav-item">
+              <a class="nav-link" href="${contextRoot}/viewProduct">View product</a>
+            </li>
+            <li id="about" class="nav-item">
               <a class="nav-link" href="${contextRoot}/about">About</a>
             </li>
             <li id="services" class="nav-item">

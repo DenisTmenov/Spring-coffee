@@ -5,7 +5,7 @@ import java.util.List;
 import com.denis.coffeebackend.entity.CoffeeTypeEntity;
 import com.denis.coffeebackend.exception.EntityException;
 
-public interface CoffeeTypeDaoInterface {
+public interface CoffeeTypeDAOInterface {
 
 	void save(CoffeeTypeEntity bean) throws EntityException;
 

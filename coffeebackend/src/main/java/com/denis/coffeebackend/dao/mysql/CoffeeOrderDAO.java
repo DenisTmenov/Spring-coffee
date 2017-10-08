@@ -8,11 +8,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.denis.coffeebackend.dao.CoffeeOrderDaoInterface;
+import com.denis.coffeebackend.dao.CoffeeOrderDAOInterface;
 import com.denis.coffeebackend.entity.CoffeeOrderEntity;
 import com.denis.coffeebackend.exception.EntityException;
 
-public class CoffeeOrderDao implements CoffeeOrderDaoInterface {
+public class CoffeeOrderDAO implements CoffeeOrderDAOInterface {
 
 	@Override
 	public void save(CoffeeOrderEntity bean) throws EntityException {

@@ -3,7 +3,7 @@ package com.denis.coffeebackend.dao;
 import com.denis.coffeebackend.entity.CoffeeOrderEntity;
 import com.denis.coffeebackend.exception.EntityException;
 
-public interface CoffeeOrderDaoInterface {
+public interface CoffeeOrderDAOInterface {
 
 	void save(CoffeeOrderEntity bean) throws EntityException;
 

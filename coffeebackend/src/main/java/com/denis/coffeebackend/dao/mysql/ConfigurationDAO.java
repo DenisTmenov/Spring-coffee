@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.denis.coffeebackend.dao.ConfigurationDaoInterface;
+import com.denis.coffeebackend.dao.ConfigurationDAOInterface;
 import com.denis.coffeebackend.entity.ConfigurationEntity;
 import com.denis.coffeebackend.exception.EntityException;
 
-public class ConfigurationDao implements ConfigurationDaoInterface {
+public class ConfigurationDAO implements ConfigurationDAOInterface {
 
 	@Override
 	public List<ConfigurationEntity> getConfigurationDataFromDb() throws EntityException {
