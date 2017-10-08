@@ -13,7 +13,7 @@ import com.denis.coffeebackend.entity.CategoryEntity;
 public class PageController {
 
 	@Autowired
-	private CategoryDAOInterface category;
+	private CategoryDAOInterface categoryDAO;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
@@ -21,7 +21,7 @@ public class PageController {
 		mv.addObject("title", "Home");
 
 		// passing the list of category
-		mv.addObject("category", category.loadAllCategories());
+		mv.addObject("category", categoryDAO.loadAllCategories());
 
 		mv.addObject("userClickHome", true);
 		return mv;
@@ -55,6 +55,10 @@ public class PageController {
 	public ModelAndView showAllProduct() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "All Product");
+
+		// passing the list of categories
+		mv.addObject("categories", categoryDAO.loadAllCategories());
+
 		mv.addObject("userClickAllProducts", true);
 		return mv;
 	}
@@ -66,8 +70,12 @@ public class PageController {
 		// categoryDAO to fetch a single category
 		CategoryEntity category = null;
 
-		category = CategoryDAOInterface.getById(id);
-		mv.addObject("title", "All Product");
+		category = categoryDAO.getById(id);
+		mv.addObject("title", category.getName());
+
+		// passing the single category object
+		mv.addObject("title", category.getName());
+
 		mv.addObject("userClickAllProducts", true);
 		return mv;
 	}
