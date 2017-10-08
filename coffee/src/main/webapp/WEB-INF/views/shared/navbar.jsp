@@ -9,8 +9,8 @@
             <li id="home" class="nav-item">
               <a class="nav-link" href="${contextRoot}/home">Home</a>
             </li>
-            <li id="viewProducts" class="nav-item">
-              <a class="nav-link" href="${contextRoot}/show/all/products">View products</a>
+            <li id="allProducts" class="nav-item">
+              <a class="nav-link" href="${contextRoot}/show/all/products">All Products</a>
             </li>
             <li id="about" class="nav-item">
               <a class="nav-link" href="${contextRoot}/about">About</a>

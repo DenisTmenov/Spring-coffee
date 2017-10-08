@@ -1,6 +1,8 @@
-$(function(){
-	switch(menu) {
-	
+$(function() {
+	switch (menu) {
+	case 'Home':
+		$('#home').addClass('active');
+		break;
 	case 'About':
 		$('#about').addClass('active');
 		break;
@@ -10,8 +12,13 @@ $(function(){
 	case 'Services':
 		$('#services').addClass('active');
 		break;
+	case 'All Products':
+		$('#allProducts').addClass('active');
+		break;
+
 	default:
-		$('#home').addClass('active');
+		$('#allProducts').addClass('active');
+		$('#a_' + menu).addClass('active');
 		break;
 	}
 });
