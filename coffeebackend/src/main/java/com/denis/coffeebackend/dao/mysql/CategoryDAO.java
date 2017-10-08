@@ -40,4 +40,15 @@ public class CategoryDAO implements CategoryDAOInterface {
 		return categories;
 	}
 
+	@Override
+	public CategoryEntity getById(int id) {
+
+		for (CategoryEntity category : categories) {
+			if (category.getId() == id) {
+				return category;
+			}
+		}
+		return null;
+	}
+
 }

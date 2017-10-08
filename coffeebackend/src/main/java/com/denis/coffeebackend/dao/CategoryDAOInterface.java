@@ -7,5 +7,7 @@ import com.denis.coffeebackend.exception.CategoryException;
 
 public interface CategoryDAOInterface {
 
-	public List<CategoryEntity> loadAllCategories() throws CategoryException;
+	List<CategoryEntity> loadAllCategories() throws CategoryException;
+
+	CategoryEntity getById(int id);
 }
