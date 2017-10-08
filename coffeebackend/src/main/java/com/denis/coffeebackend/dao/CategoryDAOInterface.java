@@ -10,4 +10,6 @@ public interface CategoryDAOInterface {
 	List<CategoryEntity> loadAllCategories() throws CategoryException;
 
 	CategoryEntity getById(int id);
+
+	boolean add(CategoryEntity category);
 }

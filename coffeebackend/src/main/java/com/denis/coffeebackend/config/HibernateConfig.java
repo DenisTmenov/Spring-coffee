@@ -1,5 +1,7 @@
 package com.denis.coffeebackend.config;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -19,9 +21,9 @@ import com.denis.coffeebackend.utils.PropertiesClass;
 @ComponentScan(basePackages = { "com.denis.coffeebackend.domian" })
 @EnableTransactionManagement
 public class HibernateConfig {
-	private static BasicDataSource basicDS;
+	private BasicDataSource basicDS;
 
-	static {
+	public HibernateConfig() {
 		Properties usingDb = PropertiesClass.getSettings("usingDb");
 		String dbNameConfig = usingDb.getProperty("db.name.config");
 		Properties jdbcSettings = PropertiesClass.getSettings(dbNameConfig);
@@ -44,8 +46,20 @@ public class HibernateConfig {
 
 	}
 
+	private static class DataSourceHolder {
+		private static final HibernateConfig HOLDER_INSTANCE = new HibernateConfig();
+	}
+
+	public static HibernateConfig getInstance() {
+		return DataSourceHolder.HOLDER_INSTANCE;
+	}
+
+	public Connection getConnection() throws SQLException {
+		return basicDS.getConnection();
+	}
+
 	@Bean
-	private DataSource getDataSource() {
+	public DataSource getDataSource() {
 		return basicDS;
 	}
 

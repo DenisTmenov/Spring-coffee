@@ -2,14 +2,24 @@ package com.denis.coffeebackend.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class CategoryEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	@Column(name = "image_url")
 	private String imageUrl;
-	private Boolean active;
+	@Column(name = "is_active")
+	private boolean active = true;
 
 	public Integer getId() {
 		return id;
@@ -35,11 +45,11 @@ public class CategoryEntity implements Serializable {
 		this.imageUrl = imageUrl;
 	}
 
-	public Boolean getActive() {
+	public boolean getActive() {
 		return active;
 	}
 
-	public void setActive(Boolean active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 
@@ -47,7 +57,7 @@ public class CategoryEntity implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((active == null) ? 0 : active.hashCode());
+		result = prime * result + (active ? 1231 : 1237);
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -63,10 +73,7 @@ public class CategoryEntity implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		CategoryEntity other = (CategoryEntity) obj;
-		if (active == null) {
-			if (other.active != null)
-				return false;
-		} else if (!active.equals(other.active))
+		if (active != other.active)
 			return false;
 		if (id == null) {
 			if (other.id != null)
