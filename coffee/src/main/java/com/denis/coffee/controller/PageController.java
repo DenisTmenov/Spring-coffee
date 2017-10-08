@@ -21,7 +21,7 @@ public class PageController {
 		mv.addObject("title", "Home");
 
 		// passing the list of category
-		mv.addObject("category", categoryDAO.loadAllCategories());
+		mv.addObject("categories", categoryDAO.loadAllCategories());
 
 		mv.addObject("userClickHome", true);
 		return mv;
