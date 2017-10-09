@@ -12,7 +12,7 @@ import com.denis.coffeebackend.dao.CategoryDAOInterface;
 import com.denis.coffeebackend.entity.CategoryEntity;
 import com.denis.coffeebackend.exception.CategoryException;
 
-@Repository("category")
+@Repository("categoryDAOmysql")
 public class CategoryDAO implements CategoryDAOInterface {
 
 	@Autowired
@@ -25,6 +25,7 @@ public class CategoryDAO implements CategoryDAOInterface {
 
 		category.setId(1);
 		category.setName("Coffee");
+		category.setDescription("First coffee");
 		category.setImageUrl("coffeeLogo.jpg");
 		category.setActive(true);
 
@@ -34,6 +35,7 @@ public class CategoryDAO implements CategoryDAOInterface {
 
 		category.setId(2);
 		category.setName("Snack");
+		category.setDescription("First snack");
 		category.setImageUrl("snackLogo.jpg");
 		category.setActive(true);
 

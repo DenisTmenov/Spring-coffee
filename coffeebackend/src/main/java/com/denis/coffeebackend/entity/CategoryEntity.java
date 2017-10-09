@@ -16,6 +16,7 @@ public class CategoryEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private String description;
 	@Column(name = "image_url")
 	private String imageUrl;
 	@Column(name = "is_active")
@@ -53,11 +54,20 @@ public class CategoryEntity implements Serializable {
 		this.active = active;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (active ? 1231 : 1237);
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -74,6 +84,11 @@ public class CategoryEntity implements Serializable {
 			return false;
 		CategoryEntity other = (CategoryEntity) obj;
 		if (active != other.active)
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -95,7 +110,7 @@ public class CategoryEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CategoryEntity [id=" + id + ", name=" + name + ", imageUrl=" + imageUrl + ", active=" + active + "]";
+		return "CategoryEntity [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl + ", active=" + active + "]";
 	}
 
 }
