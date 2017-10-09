@@ -34,7 +34,7 @@ public class CategoryTestCase {
 		category.setName("Coffee");
 		category.setDescription("3333 coffee");
 		category.setImageUrl("coffeeLogo.jpg");
-		// category.setActive(true);
+		category.setActive(true);
 
 		assertEquals("Successfully added a category inside the table!", true, categoryDAO.add(category));
 
