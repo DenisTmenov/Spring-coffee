@@ -21,29 +21,12 @@ import com.denis.coffeebackend.utils.PropertiesClass;
 @ComponentScan(basePackages = { "com.denis.coffeebackend.domian" })
 @EnableTransactionManagement
 public class HibernateConfig {
-	private BasicDataSource basicDS;
+	private Properties properties;
+	private static String dbNameConfig;
 
-	public HibernateConfig() {
+	static {
 		Properties usingDb = PropertiesClass.getSettings("usingDb");
-		String dbNameConfig = usingDb.getProperty("db.name.config");
-		Properties jdbcSettings = PropertiesClass.getSettings(dbNameConfig);
-
-		String dbDriver = jdbcSettings.getProperty("db.driver");
-		String dbURL = jdbcSettings.getProperty("db.url");
-		String dbUser = jdbcSettings.getProperty("db.user");
-		String dbPassword = jdbcSettings.getProperty("db.password");
-		String ssl = jdbcSettings.getProperty("db.ssl");
-
-		basicDS = new BasicDataSource();
-		basicDS.setDriverClassName(dbDriver);
-		basicDS.setUrl(dbURL);
-		basicDS.setUsername(dbUser);
-		basicDS.setPassword(dbPassword);
-
-		if (ssl != null) {
-			basicDS.setConnectionProperties("useSSL=" + ssl);
-		}
-
+		dbNameConfig = usingDb.getProperty("db.name.config");
 	}
 
 	private static class DataSourceHolder {
@@ -55,16 +38,30 @@ public class HibernateConfig {
 	}
 
 	public Connection getConnection() throws SQLException {
-		return basicDS.getConnection();
+		return getDataSource().getConnection();
 	}
 
-	@Bean
+	@Bean("dataSource")
 	public DataSource getDataSource() {
+		properties = PropertiesClass.getSettings(dbNameConfig);
+		;
+
+		BasicDataSource basicDS = new BasicDataSource();
+
+		basicDS.setDriverClassName(properties.getProperty("db.driver"));
+		basicDS.setUrl(properties.getProperty("db.url"));
+		basicDS.setUsername(properties.getProperty("db.user"));
+		basicDS.setPassword(properties.getProperty("db.password"));
+
+		if (properties.getProperty("db.ssl") != null) {
+			basicDS.setConnectionProperties("useSSL=" + properties.getProperty("db.ssl"));
+		}
+
 		return basicDS;
 	}
 
 	@Bean
-	private SessionFactory getSessionFacory(DataSource dataSource) {
+	public SessionFactory getSessionFactory(DataSource dataSource) {
 
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 
@@ -75,9 +72,7 @@ public class HibernateConfig {
 	}
 
 	private Properties getHibernateProperties() {
-		Properties properties = new Properties();
-
-		properties.put("hibernate.dialect", properties.getProperty("db.dialect"));
+		properties.put("hibernate.dialect", properties.getProperty("hibernate.dialect"));
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 

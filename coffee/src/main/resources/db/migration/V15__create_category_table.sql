@@ -1,5 +1,5 @@
 CREATE TABLE category (
-  id IDENTITY, 
+  id MEDIUMINT NOT NULL AUTO_INCREMENT, 
   name VARCHAR (50),
   description VARCHAR(255),
   image_url VARCHAR(255),

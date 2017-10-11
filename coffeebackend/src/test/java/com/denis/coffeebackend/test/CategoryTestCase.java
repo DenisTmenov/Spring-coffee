@@ -30,7 +30,7 @@ public class CategoryTestCase {
 	public void testAddCategory() {
 
 		category = new CategoryEntity();
-		category.setId(3);
+
 		category.setName("Coffee");
 		category.setDescription("3333 coffee");
 		category.setImageUrl("coffeeLogo.jpg");

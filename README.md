@@ -113,4 +113,4 @@ footer {
 }
 23	
 24	
-25	
+25	https://github.com/levi-putna/Hibernate-H2-Example/blob/master/hibernate-h2-example/src/hibernate.cfg.xml

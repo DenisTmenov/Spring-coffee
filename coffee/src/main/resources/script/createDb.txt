@@ -1,0 +1,6 @@
+DROP SCHEMA IF EXISTS `coffeespring`;
+
+CREATE SCHEMA IF NOT EXISTS `coffeespring`
+CHARACTER SET `utf8`;
+
+USE `coffeespring`;
