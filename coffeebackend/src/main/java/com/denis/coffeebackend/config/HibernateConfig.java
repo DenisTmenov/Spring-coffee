@@ -26,7 +26,7 @@ public class HibernateConfig {
 
 	static {
 		Properties usingDb = PropertiesClass.getSettings("usingDb");
-		dbNameConfig = usingDb.getProperty("db.name.config");
+		dbNameConfig = usingDb.getProperty("db.name.config");// o
 	}
 
 	private static class DataSourceHolder {
