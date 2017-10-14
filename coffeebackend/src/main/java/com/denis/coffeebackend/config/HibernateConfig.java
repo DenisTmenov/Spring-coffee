@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.denis.coffeebackend.utils.PropertiesClass;
 
 @Configuration
-@ComponentScan(basePackages = { "com.denis.coffeebackend.domian" })
+@ComponentScan(basePackages = { "com.denis.coffeebackend.dto" })
 @EnableTransactionManagement
 public class HibernateConfig {
 	private Properties properties;
@@ -26,7 +26,7 @@ public class HibernateConfig {
 
 	static {
 		Properties usingDb = PropertiesClass.getSettings("usingDb");
-		dbNameConfig = usingDb.getProperty("db.name.config");// o
+		dbNameConfig = usingDb.getProperty("db.name.config");
 	}
 
 	private static class DataSourceHolder {
@@ -66,7 +66,7 @@ public class HibernateConfig {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("com.denis.coffeebackend.domian");
+		builder.scanPackages("com.denis.coffeebackend.dto");
 
 		return builder.buildSessionFactory();
 	}

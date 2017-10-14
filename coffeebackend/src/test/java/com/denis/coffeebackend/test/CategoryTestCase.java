@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.denis.coffeebackend.dao.CategoryDAOInterface;
-import com.denis.coffeebackend.entity.CategoryEntity;
+import com.denis.coffeebackend.dto.Category;
 
 public class CategoryTestCase {
 
@@ -15,7 +15,7 @@ public class CategoryTestCase {
 
 	private static CategoryDAOInterface categoryDAO;
 
-	private CategoryEntity category;
+	private Category category;
 
 	@BeforeClass
 	public static void init() {
@@ -29,11 +29,11 @@ public class CategoryTestCase {
 	@Test
 	public void testAddCategory() {
 
-		category = new CategoryEntity();
+		category = new Category();
 
 		category.setName("Coffee");
-		category.setDescription("3333 coffee");
-		category.setImageUrl("coffeeLogo.jpg");
+		category.setDescription("4444 coffee");
+		category.setImageURL("coffeeLogo.jpg");
 		category.setActive(true);
 
 		assertEquals("Successfully added a category inside the table!", true, categoryDAO.add(category));

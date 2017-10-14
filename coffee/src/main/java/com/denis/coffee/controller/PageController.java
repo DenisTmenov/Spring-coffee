@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.denis.coffeebackend.dao.CategoryDAOInterface;
-import com.denis.coffeebackend.entity.CategoryEntity;
+import com.denis.coffeebackend.dto.Category;
 
 @Controller
 public class PageController {
@@ -68,7 +68,7 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 
 		// categoryDAO to fetch a single category
-		CategoryEntity category = null;
+		Category category = null;
 
 		category = categoryDAO.getById(id);
 		mv.addObject("title", category.getName());

@@ -1,4 +1,4 @@
-package com.denis.coffeebackend.entity;
+package com.denis.coffeebackend.dto;
 
 import java.io.Serializable;
 
@@ -9,16 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class CategoryEntity implements Serializable {
+public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
+
 	private String name;
+
 	private String description;
+
 	@Column(name = "image_url")
-	private String imageUrl;
+	private String imageURL;
+
 	@Column(name = "is_active")
 	private boolean active = true;
 
@@ -38,14 +43,6 @@ public class CategoryEntity implements Serializable {
 		this.name = name;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-
 	public boolean getActive() {
 		return active;
 	}
@@ -62,14 +59,26 @@ public class CategoryEntity implements Serializable {
 		this.description = description;
 	}
 
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (active ? 1231 : 1237);
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((imageURL == null) ? 0 : imageURL.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -82,7 +91,7 @@ public class CategoryEntity implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoryEntity other = (CategoryEntity) obj;
+		Category other = (Category) obj;
 		if (active != other.active)
 			return false;
 		if (description == null) {
@@ -90,15 +99,12 @@ public class CategoryEntity implements Serializable {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
-		if (imageUrl == null) {
-			if (other.imageUrl != null)
+		if (imageURL == null) {
+			if (other.imageURL != null)
 				return false;
-		} else if (!imageUrl.equals(other.imageUrl))
+		} else if (!imageURL.equals(other.imageURL))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -110,7 +116,7 @@ public class CategoryEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CategoryEntity [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl + ", active=" + active + "]";
+		return "CategoryEntity [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL + ", active=" + active + "]";
 	}
 
 }
