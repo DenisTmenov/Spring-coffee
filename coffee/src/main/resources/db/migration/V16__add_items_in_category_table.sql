@@ -1,0 +1,3 @@
+INSERT INTO category(id, name, description,image_url, is_active) values (1, 'Coffee', 'Different kinds of delicious coffee.', 'Coffee_Logo.jpg', true);
+INSERT INTO category(id, name, description,image_url, is_active) values (2, 'Snacks', 'Different kinds of delicious snacks.', 'Snacks_Logo.jpg', true);
+INSERT INTO category(id, name, description,image_url, is_active) values (3, 'Sweets', 'Different kinds of delicious sweets.', 'Sweets_Logo.jpg', true);

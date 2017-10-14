@@ -1,10 +1,10 @@
 package com.denis.coffeebackend.dao.mysql;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +14,7 @@ import com.denis.coffeebackend.dto.Category;
 import com.denis.coffeebackend.exception.CategoryException;
 
 @Repository("categoryDAO")
+@Transactional
 public class CategoryDAO implements CategoryDAOInterface {
 
 	@Autowired
@@ -23,49 +24,26 @@ public class CategoryDAO implements CategoryDAOInterface {
 		return sessionFactory;
 	}
 
-	private static List<Category> categories = new ArrayList<>();
-
-	static {
-		Category category = new Category();
-
-		category.setId(1);
-		category.setName("Coffee");
-		category.setDescription("First coffee");
-		category.setImageURL("coffeeLogo.jpg");
-		category.setActive(true);
-
-		categories.add(category);
-
-		category = new Category();
-
-		category.setId(2);
-		category.setName("Snack");
-		category.setDescription("First snack");
-		category.setImageURL("snackLogo.jpg");
-		category.setActive(true);
-
-		categories.add(category);
-	}
-
 	@Override
 	public List<Category> loadAllCategories() throws CategoryException {
 
-		return categories;
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+
+		query.setParameter("active", true);
+
+		return query.getResultList();
 	}
 
 	@Override
 	public Category getById(int id) {
 
-		for (Category category : categories) {
-			if (category.getId() == id) {
-				return category;
-			}
-		}
-		return null;
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
 	}
 
 	@Override
-	@Transactional
+
 	public boolean add(Category category) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
@@ -78,6 +56,37 @@ public class CategoryDAO implements CategoryDAOInterface {
 			return false;
 		}
 
+	}
+
+	@Override
+	public boolean update(Category category) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+
+			session.update(category);
+
+			return true;
+		} catch (Exception e) {
+			new CategoryException("Error in CategoryDAO in update method.", e);
+			return false;
+		}
+	}
+
+	@Override
+	public boolean delete(Category category) {
+
+		category.setActive(false);
+
+		try {
+			Session session = sessionFactory.getCurrentSession();
+
+			session.update(category);
+
+			return true;
+		} catch (Exception e) {
+			new CategoryException("Error in CategoryDAO in update method.", e);
+			return false;
+		}
 	}
 
 }

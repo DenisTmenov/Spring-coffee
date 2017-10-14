@@ -27,11 +27,11 @@ public class Category implements Serializable {
 	@Column(name = "is_active")
 	private boolean active = true;
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -65,10 +65,6 @@ public class Category implements Serializable {
 
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	@Override

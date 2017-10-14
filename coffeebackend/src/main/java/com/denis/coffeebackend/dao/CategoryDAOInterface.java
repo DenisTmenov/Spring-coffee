@@ -12,4 +12,8 @@ public interface CategoryDAOInterface {
 	Category getById(int id);
 
 	boolean add(Category category);
+
+	boolean update(Category category);
+
+	boolean delete(Category category);
 }
