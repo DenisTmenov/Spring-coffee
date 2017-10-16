@@ -1,4 +1,4 @@
-package com.denis.coffeebackend.dao.mysql;
+package com.denis.coffeebackend.daoimpl;
 
 import java.util.List;
 
@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.denis.coffeebackend.dao.CategoryDAOInterface;
+import com.denis.coffeebackend.dao.CategoryDAO;
 import com.denis.coffeebackend.dto.Category;
 import com.denis.coffeebackend.exception.CategoryException;
 
 @Repository("categoryDAO")
 @Transactional
-public class CategoryDAO implements CategoryDAOInterface {
+public class CategoryDAOImpl implements CategoryDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -29,7 +29,7 @@ public class CategoryDAO implements CategoryDAOInterface {
 
 		String selectActiveCategory = "FROM Category WHERE active = :active";
 
-		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		Query<Category> query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 
 		query.setParameter("active", true);
 
@@ -52,7 +52,7 @@ public class CategoryDAO implements CategoryDAOInterface {
 
 			return true;
 		} catch (Exception e) {
-			new CategoryException("Error in CategoryDAO in add method.", e);
+			new CategoryException("Error in CategoryDAOImpl in add method.", e);
 			return false;
 		}
 
@@ -67,7 +67,7 @@ public class CategoryDAO implements CategoryDAOInterface {
 
 			return true;
 		} catch (Exception e) {
-			new CategoryException("Error in CategoryDAO in update method.", e);
+			new CategoryException("Error in CategoryDAOImpl in update method.", e);
 			return false;
 		}
 	}
@@ -84,7 +84,7 @@ public class CategoryDAO implements CategoryDAOInterface {
 
 			return true;
 		} catch (Exception e) {
-			new CategoryException("Error in CategoryDAO in update method.", e);
+			new CategoryException("Error in CategoryDAOImpl in update method.", e);
 			return false;
 		}
 	}

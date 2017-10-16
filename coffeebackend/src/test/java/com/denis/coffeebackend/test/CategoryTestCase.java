@@ -7,14 +7,14 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.denis.coffeebackend.dao.CategoryDAOInterface;
+import com.denis.coffeebackend.dao.CategoryDAO;
 import com.denis.coffeebackend.dto.Category;
 
 public class CategoryTestCase {
 
 	private static AnnotationConfigApplicationContext context;
 
-	private static CategoryDAOInterface categoryDAO;
+	private static CategoryDAO categoryDAO;
 
 	private Category category;
 
@@ -24,7 +24,7 @@ public class CategoryTestCase {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("com.denis.coffeebackend");
 		context.refresh();
-		categoryDAO = (CategoryDAOInterface) context.getBean("categoryDAO");
+		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
 
 	@Ignore

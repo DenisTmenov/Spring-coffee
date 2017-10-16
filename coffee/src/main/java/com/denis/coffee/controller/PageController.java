@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.denis.coffeebackend.dao.CategoryDAOInterface;
+import com.denis.coffeebackend.dao.CategoryDAO;
 import com.denis.coffeebackend.dto.Category;
 
 @Controller
 public class PageController {
 
 	@Autowired
-	private CategoryDAOInterface categoryDAO;
+	private CategoryDAO categoryDAO;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {

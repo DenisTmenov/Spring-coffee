@@ -5,7 +5,7 @@ import java.util.List;
 import com.denis.coffeebackend.dto.Category;
 import com.denis.coffeebackend.exception.CategoryException;
 
-public interface CategoryDAOInterface {
+public interface CategoryDAO {
 
 	List<Category> loadAllCategories() throws CategoryException;
 

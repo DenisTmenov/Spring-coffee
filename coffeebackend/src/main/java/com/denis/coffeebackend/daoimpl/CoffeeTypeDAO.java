@@ -1,4 +1,4 @@
-package com.denis.coffeebackend.dao.mysql;
+package com.denis.coffeebackend.daoimpl;
 
 import java.util.List;
 
