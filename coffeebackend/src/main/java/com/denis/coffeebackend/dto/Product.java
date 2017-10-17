@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Product implements Serializable {
 
@@ -20,15 +22,19 @@ public class Product implements Serializable {
 	private String code;
 	private String name;
 	private String brand;
+	@JsonIgnore
 	private String description;
 	@Column(name = "unit_price")
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
+	@JsonIgnore
 	private boolean active;
 	@Column(name = "category_id")
+	@JsonIgnore
 	private int categoryId;
 	@Column(name = "supplier_id")
+	@JsonIgnore
 	private int supplierId;
 	private int purchases;
 	private int views;
@@ -204,8 +210,8 @@ public class Product implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description=" + description + ", unitPrice=" + unitPrice + ", quantity=" + quantity + ", active="
-				+ active + ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views=" + views + "]";
+		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", brand=" + brand + ", description=" + description + ", unitPrice=" + unitPrice + ", quantity="
+				+ quantity + ", active=" + active + ", categoryId=" + categoryId + ", supplierId=" + supplierId + ", purchases=" + purchases + ", views=" + views + "]";
 	}
 
 }

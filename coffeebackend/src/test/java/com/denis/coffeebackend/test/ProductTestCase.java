@@ -73,17 +73,17 @@ public class ProductTestCase {
 
 	@Test
 	public void testListActiveProducts() {
-		assertEquals("Successfully got the list of categories from the table!", 3, productDAO.listActiveProducts().size());
+		assertEquals("Successfully got the list of categories from the table!", 2, productDAO.listActiveProducts().size());
 	}
 
 	@Test
 	public void testListActiveProductsByCategory() {
-		assertEquals("Successfully got the list of categories from the table!", 1, productDAO.listActiveProductsByCategory(2).size());
+		assertEquals("Successfully got the list of categories from the table!", 2, productDAO.listActiveProductsByCategory(1).size());
 	}
 
 	@Test
 	public void testGetLastestActiveProducts() {
-		assertEquals("Successfully got the list of categories from the table!", 3, productDAO.getLastestActiveProducts(3).size());
+		assertEquals("Successfully got the list of categories from the table!", 2, productDAO.getLastestActiveProducts(2).size());
 	}
 
 }
