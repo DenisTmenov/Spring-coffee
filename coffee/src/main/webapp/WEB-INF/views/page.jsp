@@ -4,7 +4,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <spring:url var="css" value="/resources/css" />
-<spring:url var="img" value="/resources/img" />
+<spring:url var="images" value="/resources/images" />
 <spring:url var="js" value="/resources/js" />
 <spring:url var="vendor" value="/resources/vendor" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
@@ -70,10 +70,21 @@
 				<%@include file="services.jsp"%>
 			</c:if>
 			
-			<!-- View product page -->
+			<!-- View all product page -->
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			
+			<!-- View single product page -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
+			
+			
+			
+			
 		</div>
 		<!-- Page Content end -->
 
