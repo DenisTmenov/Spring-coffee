@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.denis.coffee.exception.ProductNotFoundException;
 import com.denis.coffeebackend.dao.CategoryDAO;
 import com.denis.coffeebackend.dao.ProductDAO;
 import com.denis.coffeebackend.dto.Category;
@@ -98,11 +99,14 @@ public class PageController {
 	// Viewing a single product
 
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable int id) {
+	public ModelAndView showSingleProduct(@PathVariable int id) throws ProductNotFoundException {
 
 		ModelAndView mv = new ModelAndView("page");
 
 		Product product = productDAO.getById(id);
+
+		if (product == null)
+			throw new ProductNotFoundException();
 
 		// update the view count
 		product.setViews(product.getViews() + 1);
