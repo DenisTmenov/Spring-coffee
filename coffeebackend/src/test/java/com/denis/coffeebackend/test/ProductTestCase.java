@@ -3,7 +3,6 @@ package com.denis.coffeebackend.test;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -27,47 +26,51 @@ public class ProductTestCase {
 		productDAO = (ProductDAO) context.getBean("productDAO");
 	}
 
-	@Ignore
 	@Test
 	public void testCRUDProduct() {
 
 		// add operation
 		product = new Product();
 
-		product.setName("Product 01");
-		product.setBrand("Brand 01");
-		product.setDescription("Description 01");
-		product.setUnitPrice(1000);
+		product.setName("Kraft Foods Oreo");
+		product.setBrand("Oreo");
+		product.setDescription("The legendary American cookie");
+		product.setUnitPrice(5);
 		product.setActive(true);
-		product.setCategoryId(1);
-		product.setSupplierId(2);
+		product.setCategoryId(3);
+		product.setSupplierId(1);
+		product.setQuantity(0);
 
 		assertEquals("Successfully added a new product inside the table!", true, productDAO.add(product));
 
-		product = new Product();
-
-		product.setName("Product 02");
-		product.setBrand("Brand 02");
-		product.setDescription("Description 02");
-		product.setUnitPrice(2000);
-		product.setActive(true);
-		product.setCategoryId(2);
-		product.setSupplierId(2);
-
-		assertEquals("Successfully added a new product inside the table!", true, productDAO.add(product));
+		// product = new Product();
+		//
+		// product.setName("Product 02");
+		// product.setBrand("Brand 02");
+		// product.setDescription("Description 02");
+		// product.setUnitPrice(2000);
+		// product.setActive(true);
+		// product.setCategoryId(2);
+		// product.setSupplierId(2);
+		//
+		// assertEquals("Successfully added a new product inside the table!", true,
+		// productDAO.add(product));
 
 		// fetching and updating the category
-		product = productDAO.getById(3);
-
-		product.setName("New Product name");
-
-		assertEquals("Successfully updated a single product in the table!", true, productDAO.update(product));
-
-		// delete the category
-		assertEquals("Successfully deleted a single product in the table!", true, productDAO.delete(product));
-
-		// fetching the list
-		assertEquals("Successfully got the list of categories from the table!", 4, productDAO.list().size());
+		// product = productDAO.getById(3);
+		//
+		// product.setName("New Product name");
+		//
+		// assertEquals("Successfully updated a single product in the table!", true,
+		// productDAO.update(product));
+		//
+		// // delete the category
+		// assertEquals("Successfully deleted a single product in the table!", true,
+		// productDAO.delete(product));
+		//
+		// // fetching the list
+		// assertEquals("Successfully got the list of categories from the table!", 4,
+		// productDAO.list().size());
 
 	}
 
