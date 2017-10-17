@@ -23,16 +23,21 @@
 
 <script>
 	window.menu = '${title}';
+	
+	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
-<link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${vendor}/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- Bootstrap dataTables CSS -->
+<link href="${vendor}/bootstrap/css/dataTables.bootstrap4.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/page.css" rel="stylesheet">
+<link href="${css}/docs.min.css" rel="stylesheet">
 
-
-
+<!-- FontAwesome -->
+<link href="${css}/font-awesome.css" rel="stylesheet">
 
 </head>
 
@@ -76,11 +81,22 @@
 		<%@include file="./shared/footer.jsp"%>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="${vendor}/jquery/jquery.min.js"></script>
-		<script src="${vendor}/popper/popper.min.js"></script>
-		<script src="${vendor}/bootstrap/js/bootstrap.min.js"></script>
+		<script src="${vendor}/popper/popper.js"></script>
+		<script src="${vendor}/bootstrap/js/bootstrap.js"></script>
+		
+		<!-- Bootstrap dataTables JavaScript -->
+		<script src="${vendor}/bootstrap/js/dataTables.bootstrap4.js"></script>
+		
+		<!-- jQuery -->
+		<script src="${vendor}/jquery/jquery.js"></script>
+		
 		<!-- Custom scripts -->
-		<script src="${js}/shineMenuName.js"></script>
+		<script src="${js}/userApp.js"></script>
+		
+		<!-- DataTable Plugin -->
+		<script src="${vendor}/jquery/jquery.dataTables.js"></script>
+		
+		
 	</div>
 </body>
 
