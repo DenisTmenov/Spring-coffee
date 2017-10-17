@@ -16,6 +16,8 @@
 		<spring.version>5.0.0.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<flyway.version>4.2.0</flyway.version>
+		<logback.classic.version>1.2.3</logback.classic.version>
+		<jcl.over.slf4j.version>1.7.25</jcl.over.slf4j.version>
 
 	</properties>
 
@@ -49,21 +51,53 @@
 		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
 
+		<!-- FlyWay -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 			<version>${flyway.version}</version>
 		</dependency>
+
+
+		<!-- SLF4J Logging -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.classic.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${jcl.over.slf4j.version}</version>
+		</dependency>
+
+
+
+
 	</dependencies>
 	<build>
 		<plugins>
