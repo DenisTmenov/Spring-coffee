@@ -12,6 +12,9 @@
             <li id="allProducts" class="nav-item">
               <a class="nav-link" href="${contextRoot}/show/all/products">All Products</a>
             </li>
+            <li id="manageProducts" class="nav-item">
+              <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
+            </li>
             <li id="about" class="nav-item">
               <a class="nav-link" href="${contextRoot}/about">About</a>
             </li>
