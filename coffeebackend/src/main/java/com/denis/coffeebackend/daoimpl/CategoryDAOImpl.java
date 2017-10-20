@@ -35,6 +35,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 		return query.getResultList();
 	}
+	
+	
 
 	@Override
 	public Category getById(int id) {

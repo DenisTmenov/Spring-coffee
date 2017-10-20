@@ -39,8 +39,35 @@ footer {
 }
 
 .dataTableImages {
-	
 	width: 100px;
 	height: 100px;
 }
 
+.dataTableFirstRow {
+	margin-top: 10px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+.dataTableBodyRow {
+	margin-left: 1px;
+	margin-right: 1px;
+}
+
+.dataTableLastRow {
+	margin-left: 15px;
+	margin-right: 1px;
+	margin-bottom: 10px;
+}
+
+.form-block{
+	margin-bottom: 10px;
+}
+
+.help-block{
+	color: #ff0000;
+}
+
+.margin-bottom{
+	margin-bottom: 30px;
+}

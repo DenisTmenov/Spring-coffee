@@ -6,7 +6,7 @@ import com.denis.coffeebackend.dto.Product;
 
 public interface ProductDAO {
 
-	List<Product> list();
+	List<Product> loadAllProducts();
 
 	Product getById(int id);
 
@@ -22,4 +22,6 @@ public interface ProductDAO {
 	List<Product> listActiveProductsByCategory(int categoryId);
 
 	List<Product> getLastestActiveProducts(int count);
+	
+	List<Product> listAllBrands();
 }

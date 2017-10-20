@@ -3,6 +3,5 @@
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; Denis 2017</p>
 		</div>
-		<!-- /.container -->
 	</footer>
 </div>
