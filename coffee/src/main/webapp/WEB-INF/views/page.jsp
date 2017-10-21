@@ -83,8 +83,8 @@
 			
 			
 			<!-- View manage products page -->
-			<c:if test="${userClickManageProducts == true}">
-				<%@include file="manageProducts.jsp"%>
+			<c:if test="${userClickManageProduct == true}">
+				<%@include file="manageProduct.jsp"%>
 			</c:if>
 			
 			

@@ -6,6 +6,38 @@
 
 		<div class="col-md-offset-2 col-md-8 ">
 
+			<c:if test="${not empty message}">
+				<div class="col-xs-12">
+
+					<div class="alert alert-success alert-dismissible" role="alert">
+
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+						${message}
+
+					</div>
+
+				</div>
+			</c:if>
+
+			<c:if test="${not empty messageError}">
+				<div class="col-xs-12">
+
+					<div class="alert alert-danger alert-dismissible" role="alert">
+
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+
+						${messageError}
+
+					</div>
+
+				</div>
+			</c:if>
+
+
+
+
+
 			<div class="card card-primary">
 
 				<div class="card-header text-center">
@@ -17,7 +49,8 @@
 
 				<div class="card-block">
 
-					<springForm:form class="form-block" modelAttribute="product">
+					<springForm:form class="form-block" modelAttribute="product"
+						action="${contextRoot}/manage/product" method="POST">
 
 						<div class="form-group row dataTableFirstRow">
 							<label for="productName-text-input" class="col-3 col-form-label ">Enter
@@ -27,26 +60,21 @@
 									id="productName-text-input" placeholder="New Product Name"></springForm:input>
 								<div id="productName-error" class="form-control-feedback">Sorry,
 									that Product Name's taken. Try another?</div>
-								<small id="productName-is-empty" class="form-text  help-block">
-									Please enter Product Name!</small>
+								<springForm:errors path="name" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 
-						<div class="form-group row dataTableBodyRow">
-							<label for="brand-select" class="col-3 col-form-label">
-								Select Brand Name: </label>
+						<div class="form-group row dataTableFirstRow">
+							<label for="brand-text-input" class="col-3 col-form-label ">Enter
+								Brand Name</label>
 							<div class="col-9">
-								<springForm:select class="custom-select col-9" path="brand"
-									id="brand-select" items="${brands}" itemLable="name"
-									itemValue="id" />
+								<springForm:input class="form-control" type="text" path="brand"
+									id="brand-text-input" placeholder="Brand Name" />
 
-								<small id="brand-is-empty" class="form-text help-block">
-									Please enter Brand Name!</small>
-
-								
+								<springForm:errors path="brand" cssClass="help-block"
+									element="em" />
 							</div>
-
-
 						</div>
 
 						<div class="form-group row dataTableBodyRow">
@@ -57,8 +85,8 @@
 									type="text" rows="4" placeholder="Description for new product"
 									id="description-text-input"></springForm:textarea>
 
-								<small id="description-is-empty" class="form-text help-block">
-									Please enter Product Description!</small>
+								<springForm:errors path="description" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 
@@ -68,8 +96,8 @@
 							<div class="col-9">
 								<springForm:input class="form-control" type="number"
 									placeholder="30" path="unitPrice" id="unitPrice-text-input"></springForm:input>
-								<small id="unitPrice-is-empty" class="form-text help-block">
-									Please enter Unit Price!</small>
+								<springForm:errors path="unitPrice" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 
@@ -79,8 +107,6 @@
 							<div class="col-9">
 								<springForm:input class="form-control" type="number"
 									placeholder="30" path="quantity" id="quantity-text-input"></springForm:input>
-								<small id="quantity-is-empty" class="form-text help-block">
-									Please enter Quantity Available!</small>
 							</div>
 						</div>
 
@@ -90,8 +116,8 @@
 							<div class="col-9">
 								<springForm:select class="custom-select col-9"
 									id="active-choose" path="active">
-									<option value="disable" selected>Disable</option>
-									<option value="active">Active</option>
+									<option value=false selected>Disable</option>
+									<option value=true>Active</option>
 								</springForm:select>
 							</div>
 						</div>
@@ -106,11 +132,8 @@
 									path="categoryId" items="${categories}" itemLabel="name"
 									itemValue="id" />
 
-								<small id="category-is-empty" class="form-text help-block">
-									Please select Category!</small>
-									
 								<div class="text-right">
-									<!-- Hidden fields for Product -->
+									<!-- Hidden fields for Category -->
 									<springForm:hidden path="id" />
 									<springForm:hidden path="code" />
 									<springForm:hidden path="supplierId" />

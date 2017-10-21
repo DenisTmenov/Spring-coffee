@@ -19,14 +19,18 @@ VALUES ('PRDCOFFEE004', 'Latte', 'Nescafe', 'This is one of the best latte avail
 
 INSERT INTO 
 product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDSNAKS001', 'Chips', 'Lays', 'World wild favorite chips!', 40, 500, true, 2, 2, 0, 0 );
+VALUES ('PRDSNAKS001', 'Chips', 'Lays', 'World wild favorite chips!', 3, 500, true, 2, 2, 0, 0 );
 
 
 INSERT INTO 
 product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDSNAKS002', 'Cookies', 'Orion', 'World wild favorite cookies!', 40, 500, true, 2, 2, 0, 0 );
+VALUES ('PRDSNAKS002', 'Chips', 'Pringles', 'World wild favorite chips!', 4, 500, true, 2, 2, 0, 0 );
+
+INSERT INTO 
+product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PRDSNAKS003', 'Cookies', 'Orion', 'World wild favorite cookies!', 2.5, 500, true, 2, 2, 0, 0 );
 
 
 INSERT INTO 
 product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id, purchases, views)
-VALUES ('PRDSNAKS003', 'ChupaChups', 'ChupaChups', 'ChupaChups sweets!', 40, 500, true, 3, 2, 0, 0 );
+VALUES ('PRDSWEETS001', 'ChupaChups', 'ChupaChups', 'ChupaChups sweets!', 1, 500, true, 3, 2, 0, 0 );

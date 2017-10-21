@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,11 +23,15 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String code;
+	@NotBlank(message = "Please enter the Product Name!")
 	private String name;
+	@NotBlank(message = "Please enter the Brand Name!")
 	private String brand;
 	@JsonIgnore
+	@NotBlank(message = "Please enter Description!")
 	private String description;
 	@Column(name = "unit_price")
+	@Min(value = 1, message = "The Price can be more then 1!")
 	private double unitPrice;
 	private int quantity;
 	@Column(name = "is_active")
@@ -38,6 +45,25 @@ public class Product implements Serializable {
 	private int supplierId;
 	private int purchases;
 	private int views;
+
+	@Transient
+	private MultipartFile file;
+
+	public int getPurchases() {
+		return purchases;
+	}
+
+	public void setPurchases(int purchases) {
+		this.purchases = purchases;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	public Product() {
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();

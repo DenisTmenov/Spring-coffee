@@ -15,8 +15,8 @@ $(function() {
 	case 'All Products':
 		$('#allProducts').addClass('active');
 		break;
-	case 'Manage Products':
-		$('#manageProducts').addClass('active');
+	case 'Manage Product':
+		$('#manageProduct').addClass('active');
 		break;
 
 	default:
@@ -104,11 +104,19 @@ $(function() {
 					}
 				}
 			]
-		})
+		});
 		
 	}
 	
 	
+	// close the alert after 3 seconds
+	var $alert = $('.alert');
+	
+	if($alert.length){
+		setTimeout(function() {
+			$alert.fadeOut('slow');
+		}, 3000)
+	}
 	
 	
 });
