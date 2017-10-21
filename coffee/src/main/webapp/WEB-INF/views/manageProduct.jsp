@@ -50,14 +50,14 @@
 				<div class="card-block">
 
 					<springForm:form class="form-block" modelAttribute="product"
-						action="${contextRoot}/manage/product" method="POST">
+						action="${contextRoot}/manage/product" method="POST" enctype="multipart/form-data">
 
 						<div class="form-group row dataTableFirstRow">
 							<label for="productName-text-input" class="col-3 col-form-label ">Enter
 								Product Name</label>
 							<div class="col-9">
 								<springForm:input class="form-control" type="text" path="name"
-									id="productName-text-input" placeholder="New Product Name"></springForm:input>
+									id="productName-text-input" placeholder="New Product Name"/>
 								<div id="productName-error" class="form-control-feedback">Sorry,
 									that Product Name's taken. Try another?</div>
 								<springForm:errors path="name" cssClass="help-block"
@@ -83,7 +83,7 @@
 							<div class="col-9">
 								<springForm:textarea class="form-control" path="description"
 									type="text" rows="4" placeholder="Description for new product"
-									id="description-text-input"></springForm:textarea>
+									id="description-text-input"/>
 
 								<springForm:errors path="description" cssClass="help-block"
 									element="em" />
@@ -95,7 +95,7 @@
 								Unit Price</label>
 							<div class="col-9">
 								<springForm:input class="form-control" type="number"
-									placeholder="30" path="unitPrice" id="unitPrice-text-input"></springForm:input>
+									placeholder="30" path="unitPrice" id="unitPrice-text-input"/>
 								<springForm:errors path="unitPrice" cssClass="help-block"
 									element="em" />
 							</div>
@@ -106,7 +106,15 @@
 								Available</label>
 							<div class="col-9">
 								<springForm:input class="form-control" type="number"
-									placeholder="30" path="quantity" id="quantity-text-input"></springForm:input>
+									placeholder="30" path="quantity" id="quantity-text-input"/>
+							</div>
+						</div>
+						
+						<div class="form-group row dataTableBodyRow">
+							<label for="file-input" class="col-3 col-form-label ">Select Product Image:</label>
+							<div class="col-9">
+								<springForm:input class="form-control" type="file"
+									path="file" id="file-input"/>
 							</div>
 						</div>
 
