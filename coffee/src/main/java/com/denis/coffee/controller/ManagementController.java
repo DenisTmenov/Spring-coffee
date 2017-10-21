@@ -2,6 +2,7 @@ package com.denis.coffee.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.denis.coffee.util.FileUploader;
 import com.denis.coffeebackend.dao.CategoryDAO;
 import com.denis.coffeebackend.dao.ProductDAO;
 import com.denis.coffeebackend.dto.Category;
@@ -35,7 +37,7 @@ public class ManagementController {
 	private ProductDAO productDAO;
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
-	public ModelAndView showManageProducts(@RequestParam(name = "success", required = false) String success) {
+	public ModelAndView showManageProduct(@RequestParam(name = "success", required = false) String success) {
 
 		ModelAndView mv = new ModelAndView("page");
 
@@ -75,7 +77,7 @@ public class ManagementController {
 	}
 
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
-	public String handleProductsSubmission(@Valid @ModelAttribute("product") Product modProduct, BindingResult results, Model model) {
+	public String handleProductsSubmission(@Valid @ModelAttribute("product") Product modProduct, BindingResult results, Model model, HttpServletRequest request) {
 
 		// check errors
 		if (results.hasErrors()) {
@@ -91,6 +93,10 @@ public class ManagementController {
 
 		// create a new product record
 		productDAO.add(modProduct);
+
+		if (!modProduct.getFile().getOriginalFilename().equals("")) {
+			FileUploader.uploadFile(request, modProduct.getFile(), modProduct.getCode());
+		}
 
 		return "redirect:/manage/product?success=product";
 	}
