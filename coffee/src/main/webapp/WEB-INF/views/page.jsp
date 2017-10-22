@@ -110,6 +110,9 @@
 		<!-- Custom scripts -->
 		<script src="${js}/userApp.js"></script>
 		
+		<!-- BootBox script -->
+		<script src="${js}/bootbox.min.js"></script>
+		
 		<!-- DataTable Plugin -->
 		<script src="${vendor}/jquery/jquery.dataTables.js"></script>
 		

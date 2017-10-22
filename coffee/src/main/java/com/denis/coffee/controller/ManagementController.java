@@ -78,7 +78,7 @@ public class ManagementController {
 	}
 
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
-	public String handleProductsSubmission(@Valid @ModelAttribute("product") Product modProduct, BindingResult results, Model model, HttpServletRequest request) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product modProduct, BindingResult results, Model model, HttpServletRequest request) {
 
 		// validate errors
 
