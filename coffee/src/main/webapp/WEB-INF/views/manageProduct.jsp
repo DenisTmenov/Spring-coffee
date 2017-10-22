@@ -113,6 +113,9 @@
 							<div class="col-9">
 								<springForm:input class="form-control" type="file" path="file"
 									id="file-input" />
+
+								<springForm:errors path="file" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 

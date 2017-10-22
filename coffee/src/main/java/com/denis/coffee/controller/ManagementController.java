@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.denis.coffee.util.FileUploader;
+import com.denis.coffee.validator.ProductValidator;
 import com.denis.coffeebackend.dao.CategoryDAO;
 import com.denis.coffeebackend.dao.ProductDAO;
 import com.denis.coffeebackend.dto.Category;
@@ -79,6 +80,10 @@ public class ManagementController {
 	@RequestMapping(value = "/product", method = RequestMethod.POST)
 	public String handleProductsSubmission(@Valid @ModelAttribute("product") Product modProduct, BindingResult results, Model model, HttpServletRequest request) {
 
+		// validate errors
+
+		new ProductValidator().validate(modProduct, results);
+
 		// check errors
 		if (results.hasErrors()) {
 
@@ -88,6 +93,11 @@ public class ManagementController {
 
 			return "page";
 		}
+
+		StringBuilder pathAndName = new StringBuilder();
+		pathAndName.append(categoryDAO.getById(modProduct.getCategoryId()).getName()).append("/").append(modProduct.getBrand()).append("/");
+
+		modProduct.setCode(modProduct.getCode().replaceFirst("PRD", pathAndName.toString() + "PRD"));
 
 		logger.info(modProduct.toString());
 

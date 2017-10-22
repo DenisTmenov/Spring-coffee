@@ -1,6 +1,6 @@
 CREATE TABLE product (
   id INT NOT NULL AUTO_INCREMENT, 
-  code VARCHAR(20),
+  code VARCHAR(200),
   name VARCHAR(50),
   brand VARCHAR(50),
   description VARCHAR(255),
