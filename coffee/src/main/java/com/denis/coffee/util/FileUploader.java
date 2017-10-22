@@ -13,9 +13,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.denis.coffeebackend.utils.PropertiesClass;
+
 public class FileUploader {
 
-	private static final String ABSTRACT_PATH = "D:/Code/";
+	private static final String ABSTRACT_PATH = PropertiesClass.getSettings("assetsPath").getProperty("assets.image");
 	private static String REAL_PATH = null;
 
 	private static final Logger logger = LoggerFactory.getLogger(FileUploader.class);
