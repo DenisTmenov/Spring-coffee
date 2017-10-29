@@ -43,7 +43,7 @@ public class ManagementController {
 		ModelAndView mv = new ModelAndView("page");
 
 		mv.addObject("userClickManageProduct", true);
-		mv.addObject("title", "Product Management");
+		mv.addObject("title", "Manage Product");
 
 		Product newProduct = new Product();
 
