@@ -23,14 +23,15 @@
 
 <script>
 	window.menu = '${title}';
-	
+
 	window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap core CSS -->
 <link href="${vendor}/bootstrap/css/bootstrap.css" rel="stylesheet">
 <!-- Bootstrap dataTables CSS -->
-<link href="${vendor}/bootstrap/css/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="${vendor}/bootstrap/css/dataTables.bootstrap4.css"
+	rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/page.css" rel="stylesheet">
@@ -69,54 +70,58 @@
 			<c:if test="${userClickServices == true}">
 				<%@include file="services.jsp"%>
 			</c:if>
-			
+
 			<!-- View all product page -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
-			
-			
+
+
 			<!-- View single product page -->
 			<c:if test="${userClickShowProduct == true}">
 				<%@include file="singleProduct.jsp"%>
 			</c:if>
-			
-			
+
+
 			<!-- View manage products page -->
 			<c:if test="${userClickManageProduct == true}">
 				<%@include file="manageProduct.jsp"%>
 			</c:if>
-			
-			
-			
-			
-			
+
+
+
+
+
 		</div>
 		<!-- Page Content end -->
 
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 
+
+		<!-- jQuery -->
+		<script src="${vendor}/jquery/jquery.js"></script>
+
 		<!-- Bootstrap core JavaScript -->
 		<script src="${vendor}/popper/popper.js"></script>
 		<script src="${vendor}/bootstrap/js/bootstrap.js"></script>
-		
-		<!-- Bootstrap dataTables JavaScript -->
-		<script src="${vendor}/bootstrap/js/dataTables.bootstrap4.js"></script>
-		
-		<!-- jQuery -->
-		<script src="${vendor}/jquery/jquery.js"></script>
-		
-		<!-- Custom scripts -->
-		<script src="${js}/userApp.js"></script>
-		
-		<!-- BootBox script -->
-		<script src="${js}/bootbox.min.js"></script>
-		
+
 		<!-- DataTable Plugin -->
 		<script src="${vendor}/jquery/jquery.dataTables.js"></script>
-		
-		
+
+		<!-- Bootstrap dataTables JavaScript -->
+		<script src="${vendor}/bootstrap/js/dataTables.bootstrap4.js"></script>
+
+		<!-- BootBox script -->
+		<script src="${js}/bootbox.min.js"></script>
+
+		<!-- Custom scripts -->
+		<script src="${js}/userApp.js"></script>
+
+
+
+
 	</div>
 </body>
 
