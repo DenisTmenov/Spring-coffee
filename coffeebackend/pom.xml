@@ -20,7 +20,7 @@
 		<mysql.version>5.1.44</mysql.version>
 		<hibernate.version>5.2.11.Final</hibernate.version>
 		<commons.dbcp2.version>2.1.1</commons.dbcp2.version>
-		<jackson.version>2.9.2</jackson.version>
+		<jackson.version>2.9.8</jackson.version>
 		<logback.classic.version>1.2.3</logback.classic.version>
 		<jcl.over.slf4j.version>1.7.25</jcl.over.slf4j.version>
 		<validation.api.version>2.0.0.Final</validation.api.version>
